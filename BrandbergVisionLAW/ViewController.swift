@@ -29,9 +29,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        /*
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        */
         let scene = SCNScene()
         
         // Set the scene to the view
@@ -47,6 +44,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    // tap function
     @objc func tapped(recognizer: UIGestureRecognizer){
         
         let sceneView = recognizer.view as! ARSCNView
@@ -83,14 +81,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    // to create the node and text to display the title of tapped class
     private func createText(text: String) -> SCNNode{
         
         let parentNode = SCNNode()
         
-        let sphere = SCNSphere(radius: 0.003)
+        let sphere = SCNSphere(radius: 0.005)
         
         let sphereMaterial = SCNMaterial()
-        sphereMaterial.diffuse.contents = UIColor.purple
+        sphereMaterial.diffuse.contents = UIColor.red
         sphere.firstMaterial = sphereMaterial
         
         let sphereNode = SCNNode(geometry: sphere)
